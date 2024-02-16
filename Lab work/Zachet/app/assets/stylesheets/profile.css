@@ -1,0 +1,11 @@
+.table {
+    float: right;
+}
+
+.about {
+    display: flex;
+}
+
+.image {
+    display: left;
+}

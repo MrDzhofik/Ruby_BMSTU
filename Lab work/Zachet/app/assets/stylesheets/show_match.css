@@ -1,0 +1,32 @@
+body {
+    background-image: url(stadium.jpeg);
+}
+
+.today_matches {
+    display: block ruby;
+    margin-left: 10px;
+}
+
+.one_match {
+    background-color: #222;
+    color: white;
+    border-width: 2px;
+    border-color: brown;
+    border-style: solid;
+    margin-right: 5px;
+    text-align: center;
+    padding: 20px;
+    width: 200px;
+    height: 225px;
+    margin-left: 10px;
+    margin-top: 5px;
+    float: left;
+}
+
+h1 {
+    color: orangered;
+}
+
+p {
+    margin-bottom: 7.5px;
+}

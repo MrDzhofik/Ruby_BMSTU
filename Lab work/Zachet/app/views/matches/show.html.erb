@@ -1,0 +1,43 @@
+<%= stylesheet_link_tag "show_stat.css" %>
+<%= stylesheet_link_tag "comments.css" %>
+
+<div class='match container-sm'>
+  <div class='statistic'>
+    <div class='sop'>
+      <span class='sop'><%= link_to @sop1[:team_name], team_path(locale, @sop1) %>  <%= link_to @sop2[:team_name], team_path(locale, @sop2) %></span>
+    </div>
+  </div>
+  <div class='statistic'>
+    <div class='schet'>
+      <p class='text-center st'><%= "#{t('schet')}" %> <%= @match[:schet]%></p>
+    </div>
+  </div>
+  <div class='statistic'>
+    <p class='text-center st_title'><%= "#{t('statistic')}" %> </p>
+    <p class='text-center'><%= "#{t('possession')}" %> </p>
+    <span class='statik'><%= @vlad[0] %><span>
+    <span class='statik'><%= @vlad[1] %><span>
+  </div>
+  <div class='statistic'>
+    <p class='text-center'><%= "#{t('udar_v_stvor')}" %></p>
+    <span class='statik'><%= @udar_v_stvor[0] %><span>
+    <span class='statik'><%= @udar_v_stvor[1] %><span>
+  </div>
+  <div class='statistic'>
+    <p class='text-center'><%= "#{t('udar_mimo')}" %></p>
+    <span class='statik'><%= @udar_mimo[0] %><span>
+    <span class='statik'><%= @udar_mimo[0] %><span>
+  </div>
+  <div class='statistic'>
+    <p class='text-center'><%= "#{t('ugol_udar')}" %></p>
+    <span class='statik'><%= @ugol_udar[0] %><span>
+    <span class='statik'><%= @ugol_udar[1] %><span>
+  </div>
+  <div class='statistic'>
+    <p class='text-center'><%= "#{t('shtraf_udar')}" %></p>
+    <span class='statik'><%= @shtraf_udar[0] %><span>
+    <span class='statik'><%= @shtraf_udar[1] %><span>
+  </div>
+  <%= button_to "#{t('exit')}", root_path, class: "back_to_all btn btn-outline-primary", method: :get %>
+</div>
+

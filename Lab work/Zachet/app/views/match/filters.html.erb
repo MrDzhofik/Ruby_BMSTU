@@ -1,0 +1,35 @@
+<h1><%="#{t('matches')}"%></h1>
+<%= stylesheet_link_tag "show_match.css" %>
+<%= stylesheet_link_tag "filters.css" %>
+
+<h1></h1>
+<% if @team_name %>
+    <h1><%= "#{t('team_name')}" %>: <%= @team_name %> </h1>
+<% end %>
+<% if @year %>
+    <h1><%= "#{t('season')}" %>: <%= @years %></h1>
+<% end %>
+<% if @league %>
+    <h1><%= "#{t('league')}" %>: <%= @league %> </h1>
+<% end %>
+<%= button_to "#{t('back')}", root_path, method: :get %>
+
+<% if @array < 180 %>
+  <div class='today_matches'>
+    <% @need_matches.each do |zap| %>
+    <% id = zap.id %>
+    <div class='one_match' id='<%= zap.id %>'>
+        <p class='sop'><%= @teams.find(zap[:sop1_id])[:team_name] %> - <%= @teams.find(zap[:sop2_id])[:team_name] %></p>
+        <p class='style'><%= zap.style %></p>
+        <p class='schet'><%= "#{t('schet')}" %> <%= zap.schet%></p>
+        <p class='date'><%= "#{t('date')}" %> <%= zap.match_date %></p>
+        <button><%= link_to "#{t('statistic')}", match_path(locale, id), method: :get, id: 'stat_button', :style=>'color: black; text-decoration: none' %></button>
+    </div>
+    <% end %>
+    </div>
+<% else %>
+<h1><%= "#{t('no_matches')}"%> </h1>
+<% end %>
+
+
+

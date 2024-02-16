@@ -1,0 +1,116 @@
+{
+  "id": "0287293c-68e6-496e-8c4e-8e5a87c15109",
+  "version": "2.0",
+  "name": "lab12",
+  "url": "http://127.0.0.1:3000/",
+  "tests": [{
+    "id": "b560a675-51f3-4750-8566-5f8c64806ebd",
+    "name": "Untitled",
+    "commands": [{
+      "id": "b591fb60-95f3-48b8-8634-5f4e39f9edb5",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0741c683-88b3-4e6d-833f-bd1237bd040a",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Новый гость",
+      "targets": [
+        ["linkText=Новый гость", "linkText"],
+        ["css=a", "css:finder"],
+        ["xpath=//a[contains(text(),'Новый гость')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/users/new')]", "xpath:href"],
+        ["xpath=//a", "xpath:position"],
+        ["xpath=//a[contains(.,'Новый гость')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f449f36b-2808-4acc-b40a-1e1866da9130",
+      "comment": "",
+      "command": "type",
+      "target": "id=user_username",
+      "targets": [
+        ["id=user_username", "id"],
+        ["name=user[username]", "name"],
+        ["css=#user_username", "css:finder"],
+        ["xpath=//input[@id='user_username']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "gav"
+    }, {
+      "id": "b60194eb-922b-4a80-aa75-26a873df37ee",
+      "comment": "",
+      "command": "type",
+      "target": "id=user_email",
+      "targets": [],
+      "value": "gav@example.ru"
+    }, {
+      "id": "58f446d2-27e7-4c2e-8d57-10f8b9b07728",
+      "comment": "",
+      "command": "type",
+      "target": "id=user_password",
+      "targets": [],
+      "value": "123456"
+    }, {
+      "id": "2f9b0962-8339-403e-a514-94aae9a60b37",
+      "comment": "",
+      "command": "click",
+      "target": "name=commit",
+      "targets": [
+        ["name=commit", "name"],
+        ["css=div:nth-child(5) > input", "css:finder"],
+        ["xpath=//input[@name='commit']", "xpath:attributes"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ba9ec089-054c-4424-863b-8528e8ca5c3f",
+      "comment": "",
+      "command": "store",
+      "target": "css=p:nth-child(4)",
+      "targets": [],
+      "value": "x"
+    }, {
+      "id": "b98bc466-3a07-45ce-9463-31cde0f53358",
+      "comment": "",
+      "command": "verify",
+      "target": "x",
+      "targets": [],
+      "value": "User was successfully created"
+    }, {
+      "id": "da8dd986-516f-44b5-88fc-6c29fad1c7dc",
+      "comment": "",
+      "command": "store",
+      "target": "css=p:nth-child(1)",
+      "targets": [],
+      "value": "x"
+    }, {
+      "id": "616d00f9-6ac9-4532-b0bc-e99cebec956d",
+      "comment": "",
+      "command": "verify",
+      "target": "x",
+      "targets": [],
+      "value": "Username: gav"
+    }, {
+      "id": "76175376-a965-4f4f-9b21-5d4c37178093",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "",
+      "targets": [],
+      "value": "1260"
+    }]
+  }],
+  "suites": [{
+    "id": "18acbccd-b1f6-4571-8a6b-84bef4d107b5",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["b560a675-51f3-4750-8566-5f8c64806ebd"]
+  }],
+  "urls": ["http://127.0.0.1:3000/"],
+  "plugins": []
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Четыре</title>
+    <script>
+        input_url = location.protocol + "//" + location.host + "/calc/show.json"
+        function send_query() {
+            var frm = document.forms.input_form;
+            param_str = "?" +
+                "power=" + frm.power.value + "&commit=Yosh"
+            if (param_str == "") return false;
+            var my_JSON_object = {};
+            var http_request = new XMLHttpRequest();
+            http_request.open("GET", input_url + param_str, true);
+            http_request.onreadystatechange = function () {
+                var done = 4, ok = 200;
+                if (http_request.readyState == done &&
+                    http_request.status == ok) {
+                    my_JSON_object =
+                        JSON.parse(http_request.responseText);
+                    show_result(my_JSON_object);
+                }
+            };
+            http_request.send(null);
+            return false;
+        }
+        function show_result(data) {
+            var result = document.getElementById("result");
+            var table = document.createElement("table");
+            var tr = document.createElement('tr');
+            table.setAttribute("border", 1)
+            result.innerHTML = "<hr/>Result is:</br>";
+            var th1 = document.createElement('th'); // это ячейка заголовка
+            var text1 = document.createTextNode("Порядковый номер"); // текст заголовка
+            var th2 = document.createElement('th');
+            var text2 = document.createTextNode("Число");
+            th1.appendChild(text1); // прикрепляем текст к заголовку
+            th2.appendChild(text2);
+            tr.appendChild(th1); // прикрепляем заголовок к ряду
+            tr.appendChild(th2);
+            table.appendChild(tr); // прикрепляем ряд к таблице
+            for (let i = 0; i < data.length; i++) { // это длина моего массива, которое я передевал через контроллер в format json
+                var tr = document.createElement('tr'); // создаем ряд
+                var td1 = document.createElement('td'); // ячейку
+                var td2 = document.createElement('td'); // вторую ячейку
+                var text1 = document.createTextNode(i); // пишем текст
+                var text2 = document.createTextNode(data.value[i]);
+                td1.appendChild(text1); // прикрепляем текст к ячейке
+                td2.appendChild(text2);
+                td2.setAttribute("id", i)
+                td1.setAttribute("align", "center") // устанавливаем атрибут, чтобы текст был в центре
+                td2.setAttribute("align", "center")
+                tr.appendChild(td1); // прикрепляем ячейку к ряду
+                tr.appendChild(td2);
+                table.appendChild(tr); // прикрепляем ряд к таблице
+            }
+            result.appendChild(table)
+            result.innerHTML += "<p>Количество найденных чисел: " + data.length + "</p><hr/>"
+        }
+    </script>
+</head>
+
+<body>
+    <form name="input_form" method="get">
+        <label for="Power">Введите количество цифр:</label>
+        <input id="power" name="power" type="number" min="1" max="6" step="1" />
+
+        <br />
+        <input name="commit" id="Yosh" type="submit" value="Yosh" onclick="return send_query();" />
+    </form>
+    <a href= />Ссылочка (в Сибирь)</a>
+    <div id="result">
+
+    </div>
+</body>
+
+</html>
